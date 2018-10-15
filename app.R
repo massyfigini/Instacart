@@ -19,27 +19,16 @@ ui <- fluidPage(
          font-size: 200%;
          }
          
-         #others {
-         color: gold;
-         font-size: 200%;
-         }
-         
-         tabPanel{ 
-         font-family: "Calibri";
-         color: gold;
-         }
-         
          body, label, input, button, select { 
          font-family: "Calibri";
-         background: #000000 url("https://www.seriouseats.com/images/2016/01/20160115-things-never-to-but-at-supermarket-.jpg")  bottom left;
+         background: #000000 url("http://massyfigini.github.io/assets/css/images/Supermarket.jpg")  bottom left;
          background-position: center center;
          background-repeat: no-repeat;
          background-attachment: fixed;
          background-size: cover;
          }'))),
   
-  #background: #000000 url("http://massyfigini.github.io/assets/css/images/DocStrange.jpg")  bottom left;
-  
+
   titlePanel(HTML("<font size=10 color=#484848><b><center>Market Basket Analysis App</center></b></font><br/>"),windowTitle="Market Basket Analysis App"),
   
   sidebarLayout(
@@ -63,14 +52,13 @@ ui <- fluidPage(
                                  <br/><br/><b>Algorithm</b><br/>
                                  The algorithm is a simple apriori model.
                                  You can find all the code on my
-                                 <a href=https://github.com/massyfigini/NextWordApp>Github</a>
+                                 <a href=https://github.com/massyfigini/Instacart>Github</a>
                                  <br/><br/><a href=http://www.massimilianofigini.com>Massimiliano Figini</a>")))
                  
                  ,width=4
                             ),
     
     mainPanel(
-      HTML("<font size=5 color=#484848>Frequently bought with</font><br/>"),
       htmlOutput("item")
       #HTML("<br/><br/>"),
       #HTML("<font size=5 color=white>Frequently bought with</font><br/>"),
@@ -114,6 +102,7 @@ server <- function(input, output) {
       } else {
         if(Found == 'N') {
         } else {
+          print(HTML("<font size=5 color=black>Frequently bought with:</font><br/>"))
           print(unname(B1), row.names=FALSE)
         }}
       
